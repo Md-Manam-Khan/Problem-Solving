@@ -1,0 +1,28 @@
+# Compiled files
+*.exe
+*.out
+*.o
+*.obj
+
+# Competitive Programming Helper files
+.cph/
+
+# IDE / Editor files
+.vscode/
+.idea/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary / Backup files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Logs
+*.log
+logs/
