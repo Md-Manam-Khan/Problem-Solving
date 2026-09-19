@@ -36,7 +36,7 @@ jobs:
               cpp_file=$(find "$dir" -maxdepth 1 -type f -name "*.cpp" | head -n 1)
               readme_file=$(find "$dir" -maxdepth 1 -type f -name "README.md" | head -n 1)
 
-              if [ -n "$cpp_file" ]; then
+              if [ -n "$cpp_file" ] && [ -n "$readme_file" ]; then
 
                 folder_name=$(basename "$dir")
 
@@ -47,33 +47,25 @@ jobs:
 
                   padded_number=$(printf "%04d" "$((10#$problem_number))")
 
-                  safe_title=$(echo "$problem_title" | sed 's/[[:space:]]*$//')
+                  if grep -qi "Easy" "$readme_file"; then
+                    difficulty="Easy"
 
-                  difficulty=""
+                  elif grep -qi "Medium" "$readme_file"; then
+                    difficulty="Medium"
 
-                  if [ -n "$readme_file" ]; then
+                  elif grep -qi "Hard" "$readme_file"; then
+                    difficulty="Hard"
 
-                    if grep -qiE 'difficulty.*easy|easy.*difficulty' "$readme_file"; then
-                      difficulty="Easy"
-
-                    elif grep -qiE 'difficulty.*medium|medium.*difficulty' "$readme_file"; then
-                      difficulty="Medium"
-
-                    elif grep -qiE 'difficulty.*hard|hard.*difficulty' "$readme_file"; then
-                      difficulty="Hard"
-                    fi
-
-                  fi
-
-                  if [ -z "$difficulty" ]; then
+                  else
                     echo "Could not determine difficulty for $folder_name"
-                    echo "Skipping this problem."
+                    echo "Skipping $folder_name"
                     continue
                   fi
 
-                  echo "Organizing $folder_name as $difficulty"
+                  echo "Found: $folder_name"
+                  echo "Difficulty: $difficulty"
 
-                  cp "$cpp_file" "Leetcode/$difficulty/${padded_number}-${safe_title}.cpp"
+                  cp "$cpp_file" "Leetcode/$difficulty/${padded_number}-${problem_title}.cpp"
 
                   rm -rf "$dir"
 
