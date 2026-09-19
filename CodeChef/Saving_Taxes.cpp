@@ -5,7 +5,11 @@ int main ()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    ll x;
-    cin>>x;
-    cout<<x * 2;
+    ll x, y, t;
+    cin>>t;
+    while (t--)
+    {
+        cin>>x>>y;
+        cout<<x - y<<"\n";
+    }
 }
