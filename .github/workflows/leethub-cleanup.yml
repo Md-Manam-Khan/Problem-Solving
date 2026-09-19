@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: leethub-organize
+  cancel-in-progress: false
+
 jobs:
   organize:
     runs-on: ubuntu-latest
@@ -65,17 +69,21 @@ jobs:
                   echo "Found: $folder_name"
                   echo "Difficulty: $difficulty"
 
-                  cp "$cpp_file" "Leetcode/$difficulty/${padded_number}-${problem_title}.cpp"
+                  mv "$cpp_file" "Leetcode/$difficulty/${padded_number}-${problem_title}.cpp"
 
                   rm -rf "$dir"
 
                 fi
+              else
+                echo "Waiting on missing file (cpp or README) for $dir — leaving as-is"
               fi
             fi
           done
 
       - name: Commit organized files
         run: |
+          set -e
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -83,7 +91,19 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "No changes to commit."
-          else
-            git commit -m "Organize LeetCode solutions"
-            git push
+            exit 0
           fi
+
+          git commit -m "Organize LeetCode solutions"
+
+          attempt=0
+          until git push
+          do
+            attempt=$((attempt + 1))
+            if [ "$attempt" -ge 5 ]; then
+              echo "Push failed after 5 attempts."
+              exit 1
+            fi
+            echo "Push rejected, rebasing onto latest and retrying ($attempt/5)..."
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+          done
