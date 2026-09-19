@@ -1,0 +1,64 @@
+name: Organize LeetCode Solutions
+
+on:
+  push:
+    paths:
+      - '*-*/*'
+      - '*-*/*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  organize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Organize LeetCode solutions
+        shell: bash
+        run: |
+          set -e
+
+          mkdir -p Leetcode
+
+          for dir in *-*; do
+            if [ -d "$dir" ] && [ "$dir" != "Leetcode" ]; then
+              cpp_file=$(find "$dir" -maxdepth 1 -type f -name "*.cpp" | head -n 1)
+
+              if [ -n "$cpp_file" ]; then
+                folder_name=$(basename "$dir")
+
+                problem_number=$(echo "$folder_name" | grep -oE '^[0-9]+')
+                problem_title=$(echo "$folder_name" | sed -E 's/^[0-9]+[-_ ]*//')
+
+                if [ -n "$problem_number" ] && [ -n "$problem_title" ]; then
+                  padded_number=$(printf "%04d" "$problem_number")
+
+                  safe_title=$(echo "$problem_title" | sed 's/[[:space:]]*$//')
+
+                  cp "$cpp_file" "Leetcode/${padded_number}-${safe_title}.cpp"
+
+                  rm -rf "$dir"
+                fi
+              fi
+            fi
+          done
+
+      - name: Commit organized files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Organize LeetCode solutions"
+            git push
+          fi
