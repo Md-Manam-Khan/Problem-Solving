@@ -39,7 +39,7 @@ jobs:
                 problem_title=$(echo "$folder_name" | sed -E 's/^[0-9]+[-_ ]*//')
 
                 if [ -n "$problem_number" ] && [ -n "$problem_title" ]; then
-                  padded_number=$(printf "%04d" "$problem_number")
+                  padded_number=$(printf "%04d" "$((10#$problem_number))")
 
                   safe_title=$(echo "$problem_title" | sed 's/[[:space:]]*$//')
 
