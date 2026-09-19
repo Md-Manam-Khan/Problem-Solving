@@ -40,7 +40,7 @@ jobs:
               cpp_file=$(find "$dir" -maxdepth 1 -type f -name "*.cpp" | head -n 1)
               readme_file=$(find "$dir" -maxdepth 1 -type f -name "README.md" | head -n 1)
 
-              if [ -n "$cpp_file" ] && [ -n "$readme_file" ]; then
+              if [ -n "$cpp_file" ]; then
 
                 folder_name=$(basename "$dir")
 
@@ -50,24 +50,40 @@ jobs:
                 if [ -n "$problem_number" ] && [ -n "$problem_title" ]; then
 
                   padded_number=$(printf "%04d" "$((10#$problem_number))")
+                  slug=$(echo "$problem_title" | tr '[:upper:]' '[:lower:]')
 
-                  if grep -qi "Easy" "$readme_file"; then
-                    difficulty="Easy"
+                  difficulty=""
 
-                  elif grep -qi "Medium" "$readme_file"; then
-                    difficulty="Medium"
+                  api_response=$(curl -s -X POST https://leetcode.com/graphql \
+                    -H "Content-Type: application/json" \
+                    -d "{\"query\":\"query q(\$titleSlug: String!) { question(titleSlug: \$titleSlug) { difficulty } }\",\"variables\":{\"titleSlug\":\"${slug}\"}}" || true)
 
-                  elif grep -qi "Hard" "$readme_file"; then
-                    difficulty="Hard"
+                  api_difficulty=$(echo "$api_response" | grep -oE '"difficulty":"(Easy|Medium|Hard)"' | grep -oE '(Easy|Medium|Hard)' || true)
 
-                  else
-                    echo "Could not determine difficulty for $folder_name"
+                  if [ -n "$api_difficulty" ]; then
+                    difficulty="$api_difficulty"
+                    echo "Difficulty for $folder_name via LeetCode API: $difficulty"
+
+                  elif [ -n "$readme_file" ]; then
+                    if grep -qi "Easy" "$readme_file"; then
+                      difficulty="Easy"
+                    elif grep -qi "Medium" "$readme_file"; then
+                      difficulty="Medium"
+                    elif grep -qi "Hard" "$readme_file"; then
+                      difficulty="Hard"
+                    fi
+                    if [ -n "$difficulty" ]; then
+                      echo "Difficulty for $folder_name via README fallback: $difficulty"
+                    fi
+                  fi
+
+                  if [ -z "$difficulty" ]; then
+                    echo "Could not determine difficulty for $folder_name (API and README both failed)"
                     echo "Skipping $folder_name"
                     continue
                   fi
 
                   echo "Found: $folder_name"
-                  echo "Difficulty: $difficulty"
 
                   mv "$cpp_file" "Leetcode/$difficulty/${padded_number}-${problem_title}.cpp"
 
@@ -75,7 +91,7 @@ jobs:
 
                 fi
               else
-                echo "Waiting on missing file (cpp or README) for $dir — leaving as-is"
+                echo "Waiting on missing .cpp file for $dir — leaving as-is"
               fi
             fi
           done
