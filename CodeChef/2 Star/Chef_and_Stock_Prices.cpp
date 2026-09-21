@@ -5,19 +5,23 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    ll t, w1, w2, x1, x2, m, w3;
+    float t, s, a, b, c;
     cin >> t;
     while(t--)
     {
-        cin>>w1>>w2>>x1>>x2>>m;
-        w3 = w2 - w1;
-        if ((w3 >= (x1 * m)) && (w3 <= (x2 * m)))
+        cin>>s>>a>>b>>c;
+        if (c != 0)
         {
-            cout << "1\n";
+            s = s + ((s * c) / 100);
+        }
+        if ((s < a) || (s > b))
+        {
+            cout<<"No\n";
         }
         else
         {
-            cout << "0\n";
+            cout<<"Yes\n";
         }
     }
+    
 }
