@@ -21,6 +21,7 @@ using mll = multiset <ll>;
 #define pb push_back
 #define pf push_front
 #define in insert
+#define sz(x) x.size()
 #define all(x) x.begin(),x.end()
 int main()
 {
