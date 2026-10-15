@@ -28,6 +28,7 @@ int main()
     ll t, x, n, i, j;
     str s;
     char c;
+    cin>>t;
     while (t--)
     {
 
