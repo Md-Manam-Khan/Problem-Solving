@@ -4,7 +4,6 @@
 #pragma GCC optimize("peel-loops,unswitch-loops,prefetch-loop-arrays,move-loop-invariants,predictive-commoning,split-loops")
 #pragma GCC optimize("gcse,gcse-lm,gcse-sm,gcse-las,cse-follow-jumps,expensive-optimizations,schedule-insns,schedule-insns2,rename-registers,reorder-blocks,reorder-functions,crossjumping,thread-jumps,strict-aliasing,optimize-sibling-calls,tree-pre,tree-vrp,tree-partial-pre,hoist-adjacent-loads,store-merging,devirtualize,devirtualize-speculatively")
 #pragma GCC optimize("no-stack-protector,omit-frame-pointer,no-plt,no-semantic-interposition,align-functions,align-loops,align-jumps,align-labels")
-#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt,fma,sse4.2,movbe,f16c")
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
