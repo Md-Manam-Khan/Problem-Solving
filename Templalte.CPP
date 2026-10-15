@@ -19,6 +19,8 @@ using mll = multiset <ll>;
 #define fi first
 #define se second
 #define pb push_back
+#define pf push_front
+#define in insert
 #define all(x) x.begin(),x.end()
 int main()
 {
