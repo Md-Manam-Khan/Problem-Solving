@@ -34,7 +34,7 @@ int main()
     while(t--)
     {
         cin>>n;
-        if (n < 30)
+        if (n <= 24)
         {
             cout<<"No\n";
         }
