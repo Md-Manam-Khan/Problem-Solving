@@ -33,14 +33,15 @@ int main()
     cin>>t;
     while (t--)
     {
-        sll a;
+        mll a;
         for (i = 0; i < 3; i++)
         {
             cin>>x;
             a.in(x);
         }
-        vll b(all(a));
-        cout<<b[1]<<"\n";
+        auto it = a.begin();
+        advance(it, 1);
+        cout<<*it<<"\n";
     }
     return 0;
 }
