@@ -28,12 +28,13 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
     ll t, x, n, i, j, k, total, sum, even, odd;
-    ld d;
+    ld d, y;
     str s;
     char c;
     cin>>n>>d;
+    y = static_cast<ld>(n);
     cout<<fixed<<setprecision(2);
-    if (((n % 5) != 0) || (n > d))
+    if (((n % 5) != 0) || (y > d) || (y + 0.50) > d)
     {
         cout<<d<<"\n";
     }
