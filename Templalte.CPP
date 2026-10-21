@@ -29,6 +29,7 @@ int main()
     cin.tie(nullptr);
     cout.tie(nullptr);
     ll t, x, n, i, j, k, total, sum, even, odd;
+    ld d, y;
     str s;
     char c;
     cin>>t;
