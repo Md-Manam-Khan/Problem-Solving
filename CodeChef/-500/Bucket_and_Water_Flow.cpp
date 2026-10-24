@@ -41,7 +41,7 @@ int main()
         {
             cout<<"Unfilled\n";
         }
-        else if (i < k)
+        else if (i < j)
         {
             cout<<"overflow\n";
         }
