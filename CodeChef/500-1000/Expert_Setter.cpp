@@ -34,8 +34,8 @@ int main()
     cin>>t;
     while (t--)
     {
-        cin>>n>>x;
-        if (x >= (n / 2))
+        cin>>d>>y;
+        if (y >= (d / 2))
         {
             cout<<"YES\n";
         }
