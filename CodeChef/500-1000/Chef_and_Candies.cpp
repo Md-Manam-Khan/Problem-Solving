@@ -35,14 +35,18 @@ int main()
     cin >> t;
     while (t--)
     {
-        cin >> n >> x;
+        cin>>n>>x;
         if (x >= n)
         {
-            cout << 0 << "\n";
+            cout<<"0\n";
+        }
+        else if (((n - x) % 4) == 0)
+        {
+            cout<<(n - x) / 4 << "\n";
         }
         else
         {
-            cout << (n - x + 3) / 4 << "\n";
+            cout<<((n - x) / 4) + 1<< "\n";
         }
     }
     return 0;
