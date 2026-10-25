@@ -39,7 +39,8 @@ int main()
         total = n + i + j;
         sum = n + i + k;
         even = i + j + k;
-        if ((total < k) || (sum < j) || (even < n))
+        odd = n + j + k;
+        if ((total < k) || (sum < j) || (even < n) || (odd < i))
         {
             cout<<"YES\n";
         }
