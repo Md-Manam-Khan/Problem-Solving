@@ -18,7 +18,7 @@ using sll = set <ll>;
 using usll = unordered_set <ll>;
 using mll = multiset <ll>;
 using mpll = map <ll, ll>;
-using upmll = unordered_map <ll, ll>;
+using umpll = unordered_map <ll, ll>;
 using umpstr = unordered_map <ll, str>;
 #define fi first
 #define se second
@@ -36,6 +36,7 @@ int main()
     ld d, y;
     str s;
     char c;
+    bool found;
     cin>>t;
     while (t--)
     {
