@@ -10,12 +10,16 @@ using namespace std;
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
+using str = string;
 using vll = vector <ll>;
 using vc = vector <char>;
-using str = string;
 using pll = pair <ll, ll>;
 using sll = set <ll>;
+using usll = unordered_set <ll>;
 using mll = multiset <ll>;
+using mpll = map <ll, ll>;
+using upmll = unordered_map <ll, ll>;
+using umpstr = unordered_map <ll, str>;
 #define fi first
 #define se second
 #define pb push_back
