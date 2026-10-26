@@ -16,59 +16,42 @@ int main ()
     cin>>t;
     while(t--)
     {
-        vll a, b, c;
+        vll a, b;
         cin>>n;
         for (i = 0; i < n; i++)
         {
             cin>>x;
-            b.push_back(x); // 1 0 1 0 -> 3 4 4 3
+            b.push_back(x);
         }
-        for (i = 0; i < b.size() - 1; i++)
+        a.push_back(2);
+        if (b[0] == 0)
         {
-            if (i == 0)
-            {
-                a.push_back(3);
-                if (b[i] == 0)
-                {
-                    a.push_back(3);
-                }
-                else
-                {
-                    a.push_back(4);
-                }
-            }
-            else
-            {
-                if (b[i] == 0)
-                {
-                    a.push_back(4);
-                }
-                else
-                {
-                    a.push_back(3);
-                }
-            }
-        }
-        for (i = 0; i < a.size() - 1; i++) // 3 4 4 3
-        {
-            if (((a[i] + a[i + 1]) % 2) == 0) // 1 0 1
-            {
-                c.push_back(0);
-            }
-            else
-            {
-                c.push_back(1);
-            }
-        }
-        if (((a[0] + a[a.size() - 1]) % 2) == 0)
-        {
-            c.push_back(0);
+            a.push_back(2);
         }
         else
         {
-            c.push_back(1);
+            a.push_back(1);
         }
-        if (b == c)
+        for (i = 1; i < b.size() - 1; i++)
+        {
+            if ((b[i] == 0) && (a[i] == 2))
+            {
+                a.push_back(2);
+            }
+            else if ((b[i] == 0) && (a[i] == 1))
+            {
+                a.push_back(1);
+            }
+            else if ((b[i] == 1) && (a[i] == 2))
+            {
+                a.push_back(1);
+            }
+            else if ((b[i] == 1) && (a[i] == 1))
+            {
+                a.push_back(2);
+            }
+        }
+        if (((a[n - 1] + a[0]) % 2) == b[n - 1])
         {
             cout<<"YES\n";
         }
