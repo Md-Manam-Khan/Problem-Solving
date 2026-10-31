@@ -36,17 +36,14 @@ int main()
     while(t--)
     {
         cin>>n>>x;
-        if (n == x)
+        if ((n == x) || (n == 0) || (x == 0))
         {
             cout<<"0\n";
         }
         else
         {
-            mll a;
-            a.in(n);
-            a.in(x);
-            auto it = a.begin();
-            cout<<*it<<"\n";
+            i = n - x;
+            cout<<min(i, x)<<"\n";
         }
     }
     return 0;
