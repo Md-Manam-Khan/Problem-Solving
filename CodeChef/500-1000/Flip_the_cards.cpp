@@ -42,8 +42,8 @@ int main()
         }
         else
         {
-            i = n - x;
-            cout<<min(i, x)<<"\n";
+            total = n - x;
+            cout<<min(total, x)<<"\n";
         }
     }
     return 0;
