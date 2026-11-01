@@ -40,11 +40,11 @@ int main()
     while (t--)
     {
         cin>>n>>x;
-        if (n < x)
+        if (n <= x) 
         {
-            cout<<x - n<<"\n";
+            cout<<n<<"\n";
         }
-        else if (n > x)
+        else
         {
             if (x == 0)
             {
@@ -54,10 +54,6 @@ int main()
             {
                 cout<<n + (n - x)<<"\n";
             }
-        }
-        else
-        {
-            cout<<n<<"\n";
         }
     }
     return 0;
