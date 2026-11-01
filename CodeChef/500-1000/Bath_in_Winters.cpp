@@ -40,7 +40,11 @@ int main()
     while (t--)
     {
         cin>>n>>x;
-        if (n < x)
+        if ((n % (x * 2)) == 0)
+        {
+            cout<<n / (x * 2)<<"\n";
+        }
+        else if (n < x)
         {
             cout<<"0\n";
         }
