@@ -13,6 +13,7 @@ using ld = long double;
 using str = string;
 using vll = vector <ll>;
 using vc = vector <char>;
+using vstr = vector <str>;
 using pll = pair <ll, ll>;
 using sll = set <ll>;
 using usll = unordered_set <ll>;
