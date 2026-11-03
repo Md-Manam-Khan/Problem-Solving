@@ -3,15 +3,12 @@ class Solution
 public:
     int minPartitions(string n) 
     {
-        int max = n[0] - '0';
-        for (int i = 1; i < n.size(); i++)
+        int ans =0;
+        for(char &c : n)
         {
-            if (max < (n[i] - '0'))
-            {
-                max = n[i] - '0';
-            }
+            ans = max(ans, c-'0');
         }
-        return max;
+        return ans;
     }
 };
 
