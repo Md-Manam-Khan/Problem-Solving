@@ -42,36 +42,54 @@ int main()
     {
         cin>>n;
         vll h(n), L, M, R;
-        for (i = 0; i < n; i++) cin>>h[i];
+        for (i = 0; i < n; i++)
+        {
+            cin>>h[i];
+        }
         sort(all(h));
-
-        // Step 1: peak = all copies of the max
         ll mx = h[n - 1];
         for (i = 0; i < n; i++)
-            if (h[i] == mx) M.pb(mx);
+        {
+            if (h[i] == mx) 
+            {
+                M.pb(mx);
+            }
+        }
         ll cmax = sz(M);
-
-        // Step 2: smaller heights, group by group
         i = 0;
         while (i < n && h[i] < mx)
         {
             j = i;
-            while (j < n && h[j] == h[i]) j++;
+            while (j < n && h[j] == h[i])
+            {
+                j++;
+            } 
             ll cnt = j - i;
-            L.pb(h[i]);                                   // first copy -> left
-            if (cnt >= 2) R.pb(h[i]);                     // second copy -> right
-            for (k = 2; k < cnt; k++) M.pb(h[i]);         // extras -> hidden
+            L.pb(h[i]);
+            if (cnt >= 2) 
+            {
+                R.pb(h[i]);
+            }
+            for (k = 2; k < cnt; k++) 
+            {
+                M.pb(h[i]);
+            }        
             i = j;
         }
-
-        // Step 3: answer
         total = sz(L) + min(cmax, 2LL) + sz(R);
         cout<<total<<"\n";
-
-        // Step 4: print left, peak(+extras), right reversed
-        for (ll v : L) cout<<v<<" ";
-        for (ll v : M) cout<<v<<" ";
-        for (i = (ll)sz(R) - 1; i >= 0; i--) cout<<R[i]<<" ";
+        for (ll v : L) 
+        {
+            cout<<v<<" ";
+        }
+        for (ll v : M) 
+        {
+            cout<<v<<" ";
+        }
+        for (i = (ll)sz(R) - 1; i >= 0; i--) 
+        {
+            cout<<R[i]<<" ";
+        }
         cout<<"\n";
     }
     return 0;
