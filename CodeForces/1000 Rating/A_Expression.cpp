@@ -47,8 +47,10 @@ int main()
     a.in(total);
     total = (i + j) * k;
     a.in(total);
+    total = i + j + k;
+    a.in(total);
     auto it = a.begin();
-    advance(it, 3);
+    advance(it, 4);
     cout<<*it;
     return 0;
 }
