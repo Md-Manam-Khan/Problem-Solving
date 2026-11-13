@@ -33,7 +33,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    ll t, x, n, i, j, k, total, sum, even, odd;
+    ll t, x, n, i, j, k, total, sum, even, odd, count;
     ld d, y;
     str s;
     char c;

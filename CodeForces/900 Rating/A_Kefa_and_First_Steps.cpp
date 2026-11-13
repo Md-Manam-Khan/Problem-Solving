@@ -43,19 +43,26 @@ int main()
     {
         cin>>l;
     }
-    total = 0;
-    for (i = 1; i < a.size(); i++)
+    total = 1;
+    if (t == 1)
     {
-        if (a[i - 1] <= a[i])
-        {
-            ++total;
-        }
-        else
-        {
-            total = 0;
-        }
-        b.pb(total);
+        cout<<1;
     }
-    cout<<*max_element(all(b)) + 1;
+    else
+    {
+        for (i = 1; i < a.size(); i++)
+        {
+            if (a[i - 1] <= a[i])
+            {
+                ++total;
+            }
+            else
+            {
+                total = 1;
+            }
+            b.pb(total);
+        }
+        cout<<*max_element(all(b));
+    }
     return 0;
 }
