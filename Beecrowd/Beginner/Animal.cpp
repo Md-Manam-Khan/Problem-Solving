@@ -4,6 +4,7 @@
 #pragma GCC optimize("peel-loops,unswitch-loops,prefetch-loop-arrays,move-loop-invariants,predictive-commoning,split-loops")
 #pragma GCC optimize("gcse,gcse-lm,gcse-sm,gcse-las,cse-follow-jumps,expensive-optimizations,schedule-insns,schedule-insns2,rename-registers,reorder-blocks,reorder-functions,crossjumping,thread-jumps,strict-aliasing,optimize-sibling-calls,tree-pre,tree-vrp,tree-partial-pre,hoist-adjacent-loads,store-merging,devirtualize,devirtualize-speculatively")
 #pragma GCC optimize("no-stack-protector,omit-frame-pointer,no-plt,no-semantic-interposition,align-functions,align-loops,align-jumps,align-labels")
+#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt,fma,sse4.2,movbe,f16c")
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -32,37 +33,61 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    ll t, x, n, i, j, k, total, sum, even, odd;
+    ll t, x, n, i, j, k, total, sum, even, odd, count;
     ld d, y;
-    str s;
+    str s, s1, s2;
     char c;
-    bool found;
-    cin>>t;
-    vll a(t), b;
-    for (auto &l : a)
+    bool found, seen;
+    cin>>s>>s1>>s2;
+    if (s == "vertebrado")
     {
-        cin>>l;
-    }
-    total = 1;
-    if (t == 1)
-    {
-        cout<<1;
-    }
-    else
-    {
-        for (i = 1; i < a.size(); i++)
+        if (s1 == "mamifero")
         {
-            if (a[i - 1] <= a[i])
+            if (s2 == "onivoro")
             {
-                ++total;
+                cout<<"homem\n";
             }
             else
             {
-                total = 1;
+                cout<<"vaca\n";
             }
-            b.pb(total);
         }
-        cout<<*max_element(all(b));
+        else
+        {
+            if (s2 == "carnivoro")
+            {
+                cout<<"aguia\n";
+            }
+            else
+            {
+                cout<<"pomba\n";
+            }
+        }
+    }
+    else
+    {
+        if (s1 == "inseto")
+        {
+            if (s2 == "hematofago")
+            {
+                cout<<"pulga\n";
+            }
+            else
+            {
+                cout<<"lagarta\n";
+            }
+        }
+        else
+        {
+            if (s2 == "onivoro")
+            {
+                cout<<"minhoca\n";
+            }
+            else
+            {
+                cout<<"sanguessuga\n";
+            }
+        }
     }
     return 0;
 }
