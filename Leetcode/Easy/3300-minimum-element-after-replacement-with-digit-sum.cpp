@@ -3,7 +3,7 @@ class Solution
 public:
     int minElement(vector<int>& nums) 
     {
-        vector <int> a;
+        int s = INT_MAX;
         for (int i = 0; i < nums.size(); i++)
         {
             int x = nums[i];
@@ -14,9 +14,9 @@ public:
                 sum += n;
                 x /= 10;
             }
-            a.push_back(sum);
+            s = min(s,sum);
         }
-        return *min_element(a.begin(), a.end());
+        return s;
     }
 };
 
