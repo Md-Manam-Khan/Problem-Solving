@@ -33,15 +33,23 @@ int main()
     char c;
     bool found, seen;
     cin>>n>>x;
+    odd = (n + 1) / 2;
     vll a;
-    for (i = 1; i <= n; i += 2)
+    if (x <= odd)
     {
-        a.pb(i);
+        for (i = 1; i <= n; i += 2)
+        {
+            a.pb(i);
+        }
+        cout<<a[x - 1];
     }
-    for (i = 2; i <= n; i += 2)
+    else
     {
-        a.pb(i);
+        for (i = 2; i <= n; i += 2)
+        {
+            a.pb(i);
+        }
+        cout<<a[x - odd - 1];
     }
-    cout<<a[x - 1];
     return 0;
 }
