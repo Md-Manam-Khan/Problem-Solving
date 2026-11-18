@@ -10,6 +10,7 @@ using vll = vector <ll>;
 using vvll = vector <vector <ll>>;
 using vc = vector <char>;
 using vstr = vector <str>;
+using lll = list <ll>;
 using pll = pair <ll, ll>;
 using pc = pair <ll, char>;
 using pstr = pair <ll, str>;
@@ -34,6 +35,8 @@ using umpstr = unordered_map <ll, str>;
 #define ins insert
 #define sz(x) ((ll)(x).size())
 #define all(x) (x).begin(),(x).end()
+#define yes cout<<"YES\n"
+#define no cout<<"NO\n"
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -49,5 +52,6 @@ int main()
     {
         
     }
+    cout<<"\n";
     return 0;
 }
