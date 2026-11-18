@@ -1,46 +1,53 @@
-#pragma GCC optimize("O3,Ofast,unroll-loops,fast-math,finite-math-only,no-signed-zeros,no-trapping-math,associative-math,reciprocal-math,unsafe-math-optimizations")
-#pragma GCC optimize("inline,inline-functions,inline-small-functions,inline-functions-called-once,partial-inlining,indirect-inlining,early-inlining")
-#pragma GCC optimize("tree-vectorize,tree-loop-vectorize,tree-slp-vectorize,tree-loop-distribution,tree-loop-im,tree-loop-ivcanon,ivopts")
-#pragma GCC optimize("peel-loops,unswitch-loops,prefetch-loop-arrays,move-loop-invariants,predictive-commoning,split-loops")
-#pragma GCC optimize("gcse,gcse-lm,gcse-sm,gcse-las,cse-follow-jumps,expensive-optimizations,schedule-insns,schedule-insns2,rename-registers,reorder-blocks,reorder-functions,crossjumping,thread-jumps,strict-aliasing,optimize-sibling-calls,tree-pre,tree-vrp,tree-partial-pre,hoist-adjacent-loads,store-merging,devirtualize,devirtualize-speculatively")
-#pragma GCC optimize("no-stack-protector,omit-frame-pointer,no-plt,no-semantic-interposition,align-functions,align-loops,align-jumps,align-labels")
 #include <bits/stdc++.h>
+#pragma GCC optimize("O3,unroll-loops,no-stack-protector")
+//#pragma GCC target("avx2,bmi,bmi2,popcnt,lzcnt,fma")
 using namespace std;
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
 using str = string;
 using vll = vector <ll>;
+using vvll = vector <vector <ll>>;
 using vc = vector <char>;
 using vstr = vector <str>;
 using pll = pair <ll, ll>;
+using pc = pair <ll, char>;
+using pstr = pair <ll, str>;
 using sll = set <ll>;
-using usll = unordered_set <ll>;
+using sc = set <char>;
 using mll = multiset <ll>;
+using mc = multiset <char>;
+using usll = unordered_set <ll>;
+using usc = unordered_set <char>;
 using mpll = map <ll, ll>;
+using mpc = map <ll, char>;
+using mpstr = map <ll, str>;
 using umpll = unordered_map <ll, ll>;
+using umpc = unordered_map <ll, char>;
 using umpstr = unordered_map <ll, str>;
 #define fi first
 #define se second
-#define pb push_back
 #define pf push_front
-#define in insert
-#define sz(x) x.size()
-#define all(x) x.begin(),x.end()
+#define pb push_back
+#define pof pop_front
+#define pob pop_back
+#define ins insert
+#define sz(x) ((ll)(x).size())
+#define all(x) (x).begin(),(x).end()
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    cout.tie(nullptr);
-    ll t, x, n, i, j, k, total, sum, even, odd, count;
-    ld d, y;
+    ll testCases, n, x, i, j, k;
+    ll total = 0, sum = 0, cnt = 0, even = 0, odd = 0;
+    ld d, y, z;
+    char c, c1, c2;
     str s, s1, s2;
-    char c;
-    bool found, seen;
-    cin>>t;
-    while (t--)
+    bool found = false, seen = false, truth = false;
+    cin>>testCases;
+    while (testCases--)
     {
-
+        
     }
     return 0;
 }
