@@ -51,14 +51,7 @@ int main()
     str s, s1, s2;
     bool found = false, seen = false, truth = false;
     cin>>s;
-    for (i = 0; i < sz(s); i++)
-    {
-        if ((s[i] == 'H') || (s[i] == 'Q') || (s[i] == '9') || (s[i] == '+'))
-        {
-            seen = true;
-        }
-    }
-    if (seen)
+    if (s.find_first_of("HQ9") != string::npos)
     {
         YES;
     }
