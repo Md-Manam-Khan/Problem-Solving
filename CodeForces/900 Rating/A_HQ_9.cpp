@@ -53,7 +53,7 @@ int main()
     cin>>s;
     for (i = 0; i < sz(s); i++)
     {
-        if (s[i] == 'H' || 'Q' || '9' || '+')
+        if ((s[i] == 'H') || (s[i] == 'Q') || (s[i] == '9') || (s[i] == '+'))
         {
             seen = true;
         }
