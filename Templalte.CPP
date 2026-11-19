@@ -16,8 +16,10 @@ using str = string;
 #define ins insert
 #define sz(x) ((ll)(x).size())
 #define all(x) (x).begin(),(x).end()
-#define yes cout<<"YES\n"
-#define no cout<<"NO\n"
+#define YES cout<<"YES\n"
+#define NO cout<<"NO\n"
+#define yes cout<<"Yes\n"
+#define no cout<<"No\n"
 using vll = vec <ll>;
 using vvll = vec <vector <ll>>;
 using vc = vec <char>;
