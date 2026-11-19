@@ -6,10 +6,22 @@ using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
 using str = string;
-using vll = vector <ll>;
-using vvll = vector <vector <ll>>;
-using vc = vector <char>;
-using vstr = vector <str>;
+#define vec vector
+#define fi first
+#define se second
+#define pf push_front
+#define pb push_back
+#define pof pop_front
+#define pob pop_back
+#define ins insert
+#define sz(x) ((ll)(x).size())
+#define all(x) (x).begin(),(x).end()
+#define yes cout<<"YES\n"
+#define no cout<<"NO\n"
+using vll = vec <ll>;
+using vvll = vec <vector <ll>>;
+using vc = vec <char>;
+using vstr = vec <str>;
 using lll = list <ll>;
 using pll = pair <ll, ll>;
 using pc = pair <ll, char>;
@@ -26,17 +38,6 @@ using mpstr = map <ll, str>;
 using umpll = unordered_map <ll, ll>;
 using umpc = unordered_map <ll, char>;
 using umpstr = unordered_map <ll, str>;
-#define fi first
-#define se second
-#define pf push_front
-#define pb push_back
-#define pof pop_front
-#define pob pop_back
-#define ins insert
-#define sz(x) ((ll)(x).size())
-#define all(x) (x).begin(),(x).end()
-#define yes cout<<"YES\n"
-#define no cout<<"NO\n"
 int main()
 {
     ios_base::sync_with_stdio(false);
