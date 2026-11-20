@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> getSneakyNumbers(vector<int>& nums) 
     {
-        map <int, int> a;
+        unordered_map <int, int> a;
         vector <int> b;
         for (int i = 0; i < nums.size(); i++)
         {
