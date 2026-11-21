@@ -2,19 +2,13 @@ class Solution {
 public:
     vector<int> numberGame(vector<int>& nums) 
     {
-        vector <int> a;
-        while(nums.size())
+        sort(nums.begin(), nums.end());
+        for (int i = 0; i < nums.size() - 1; i++)
         {
-            int minA = *min_element(nums.begin(), nums.end());
-            int minApos = min_element(nums.begin(), nums.end()) - nums.begin();
-            nums.erase(nums.begin() + minApos);
-            int minB = *min_element(nums.begin(), nums.end());
-            int minBpos = min_element(nums.begin(), nums.end()) - nums.begin();
-            nums.erase(nums.begin() + minBpos);
-            a.push_back(minB);
-            a.push_back(minA);
+            swap(nums[i], nums[i + 1]);
+            ++i;
         }
-        return a;
+        return nums;
     }
 };
 
