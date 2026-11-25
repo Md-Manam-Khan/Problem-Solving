@@ -82,11 +82,31 @@ int main()
     bool found = false, seen = false, truth = false;
     //auto prime = sieve(N);
     cin>>n>>x;
-    vpll a;
+    multiset <pll> a;
     for (i = 0; i < x; i++)
     {
         cin>>j>>k;
-        pll temp = mpr(j, k);
+        auto temp = mpr(j,k);
+        a.ins(temp);
+    }
+    for (auto &l : a)
+    {
+        if (n > l.fi)
+        {
+            n += l.se;
+        }
+        else
+        {
+            seen = true;
+        }
+    }
+    if (seen)
+    {
+        NO;
+    }
+    else
+    {
+        YES;
     }
     cout<<"\n";
     return 0;
