@@ -15,6 +15,7 @@ using vec = vector<T>;
 #define pof pop_front
 #define pob pop_back
 #define ins insert
+#define mpr make_pair
 #define sz(x) ((ll)(x).size())
 #define all(x) (x).begin(),(x).end()
 #define YES cout<<"YES\n"
@@ -85,7 +86,7 @@ int main()
     for (i = 0; i < x; i++)
     {
         cin>>j>>k;
-
+        pll temp = mpr(j, k);
     }
     cout<<"\n";
     return 0;
