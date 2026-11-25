@@ -78,11 +78,20 @@ int main()
     char c, c1, c2;
     str s, s1, s2;
     bool found = false, seen = false, truth = false;
-    //auto prime = sieve(N);
+    auto prime = sieve(N);
     cin>>testCases;
     while(testCases--)
     {
-        
+        cin>>x;
+        ll n = sqrtl(x);
+        if (((n * n) == x) && prime[n])
+        {
+            YES;
+        }
+        else
+        {
+            NO;
+        }
     }
     cout<<"\n";
     return 0;
