@@ -6,7 +6,8 @@ using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
 using str = string;
-#define vec vector
+template <typename T>
+using vec = vector<T>;
 #define fi first
 #define se second
 #define pf push_front
@@ -40,21 +41,49 @@ using mpstr = map <ll, str>;
 using umpll = unordered_map <ll, ll>;
 using umpc = unordered_map <ll, char>;
 using umpstr = unordered_map <ll, str>;
+const int N = 1e6;
+constexpr int MaxInt = numeric_limits<int>::max();
+constexpr ll MaxLL = numeric_limits<ll>::max();
+constexpr ull MaxULL = numeric_limits<ull>::max();
+constexpr ld MaxLD = numeric_limits<ld>::max();
+constexpr ll MinLL = numeric_limits<ll>::lowest();
+constexpr ld MinLD = numeric_limits<ld>::lowest();
+vector<bool> sieve(int n) 
+{
+    vector<bool> prime(n + 1, true);
+    prime[0] = false;
+    if(n >= 1)
+    {
+        prime[1] = false;
+    }
+    for(ll i = 2; i * i <= n; i++) 
+    {
+        if(prime[i]) 
+        {
+            for(ll j = i * i; j <= n; j += i) 
+            {
+                prime[j] = false;
+            }
+        }
+    }
+    return prime;
+}
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    ll testCases, n, x, i, j, k;
+    ll testCases, i, j, n, x, k;
     ll total = 0, sum = 0, cnt = 0, even = 0, odd = 0;
     ld d, y, z;
     char c, c1, c2;
     str s, s1, s2;
     bool found = false, seen = false, truth = false;
+    //auto prime = sieve(N);
     cin>>testCases;
-    while (testCases--)
+    while(testCases--)
     {
-        
+
     }
     cout<<"\n";
     return 0;
-}
+} 
