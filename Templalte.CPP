@@ -27,6 +27,7 @@ using vc = vec <char>;
 using vstr = vec <str>;
 using lll = list <ll>;
 using pll = pair <ll, ll>;
+using vpll = vec <pll>;
 using pc = pair <ll, char>;
 using pstr = pair <ll, str>;
 using sll = set <ll>;
